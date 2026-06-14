@@ -181,6 +181,11 @@ public class VersionModule {
                 break;
 
         }
+        if (returns == null) {
+            // Repli: serveur plus recent que les versions connues (ex. Paper 26.x)
+            // -> on tente le dernier NMS supporte au lieu de refuser de charger.
+            returns = ServerVersion.v1_21_R6;
+        }
         return returns;
     }
 
